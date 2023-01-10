@@ -7,7 +7,7 @@ namespace SampleSite.Pages;
 public class IndexModel : PageModel
 {
     public string debug_data = String.Empty;
-    public string site_name = Environment.GetEnvironmentVariable("SITE_NAME") ?? "Massive Butt Head";
+    public string site_name = Environment.GetEnvironmentVariable("SITE_NAME") ?? "Sample Site - Default Name";
     private readonly ILogger<IndexModel> _logger;
 
     public IndexModel(ILogger<IndexModel> logger)
