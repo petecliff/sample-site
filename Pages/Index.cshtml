@@ -1,0 +1,10 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-left">
+    <h1 class="display-4">@Model.site_name</h1>
+    @Html.Raw(Model.debug_data)
+</div>
