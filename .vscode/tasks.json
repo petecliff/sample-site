@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/WhereYoFro.csproj",
+                "${workspaceFolder}/SampleSite.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/WhereYoFro.csproj",
+                "${workspaceFolder}/SampleSite.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/WhereYoFro.csproj"
+                "${workspaceFolder}/SampleSite.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
