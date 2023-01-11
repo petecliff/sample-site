@@ -17,7 +17,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        var headers = new HttpClient().DefaultRequestHeaders;
+        var headers = Request.Headers;
         PropertyInfo[] properties = headers.GetType().GetProperties();
         foreach (var prop in properties)
         {
