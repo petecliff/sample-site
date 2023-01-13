@@ -21,6 +21,5 @@ public class IndexModel : PageModel
         {
             debug_data += "<p><b>" + header.Key + ": </b>" + header.Value + "</p>";
         }
-
     }
 }
