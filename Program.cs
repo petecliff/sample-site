@@ -14,6 +14,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 var app = builder.Build();
 
 app.UseForwardedHeaders();
+app.UseRouting();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -27,9 +28,10 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapGet("/", async context =>
     {
+        await context.Response.WriteAsync("<h1 style='font-family: sans-serif; padding-left: 50px;'>Headers</h1>");
         foreach (var header in context.Request.Headers)
         {
-            await context.Response.WriteAsync($"<p><b>{header.Key}</b>: {header.Value}</p>{Environment.NewLine}");
+            await context.Response.WriteAsync($"<p style='font-family: sans-serif; padding-left: 50px;'><b>{header.Key}</b>: {header.Value}</p>{Environment.NewLine}");
         }
     });
 });
@@ -37,7 +39,6 @@ app.UseEndpoints(endpoints =>
 //app.UseHttpsRedirection();
 //app.UseStaticFiles();
 
-//app.UseRouting();
 
 //app.UseAuthorization();
 
