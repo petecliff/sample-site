@@ -8,7 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardedHeaders =
-        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        ForwardedHeaders.XForwardedHost | ForwardedHeaders.XForwardedProto;
 });
 
 var app = builder.Build();
@@ -23,13 +23,24 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/", async context =>
+    {
+        foreach (var header in context.Request.Headers)
+        {
+            await context.Response.WriteAsync($"<p><b>{header.Key}</b>: {header.Value}</p>{Environment.NewLine}");
+        }
+    });
+});
+
 //app.UseHttpsRedirection();
-app.UseStaticFiles();
+//app.UseStaticFiles();
 
-app.UseRouting();
+//app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
-app.MapRazorPages();
+//app.MapRazorPages();
 
 app.Run();
